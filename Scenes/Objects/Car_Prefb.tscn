@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Vehicle_Main.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Objects/Car_Wheel_Sus.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/Models/Car_Body.obj" type="ArrayMesh" id=3]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1, 0.55, 2.6653 )
+
+[sub_resource type="CylinderShape" id=3]
+height = 0.348364
+radius = 0.63317
+
+[node name="Car_Node" type="RigidBody"]
+input_ray_pickable = false
+gravity_scale = 5.0
+linear_damp = 0.99
+angular_damp = 0.99
+script = ExtResource( 1 )
+sus_force = 450.0
+sus_stiffness = 0.65
+sus_damp = 200.0
+hfriction = 1.0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.806757, -0.0782009 )
+shape = SubResource( 2 )
+
+[node name="Car_Body" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0110848, 0.501018, -0.0713972 )
+mesh = ExtResource( 3 )
+
+[node name="Wheel_Coll_1" type="CollisionShape" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.890601, 0.320002, -1.91321 )
+shape = SubResource( 3 )
+
+[node name="Wheel_Coll_2" type="CollisionShape" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.891, 0.320002, -1.91321 )
+shape = SubResource( 3 )
+
+[node name="Wheel_Coll_3" type="CollisionShape" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.890601, 0.320002, 1.75277 )
+shape = SubResource( 3 )
+
+[node name="Wheel_Coll_4" type="CollisionShape" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.891, 0.320002, 1.75277 )
+shape = SubResource( 3 )
+
+[node name="T1" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.912685, 0.0219471, -1.91543 )
+is_steer_wheel = true
+
+[node name="T2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.913, 0.0223939, -1.915 )
+is_steer_wheel = true
+
+[node name="T3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.912685, 0.0219471, 1.77983 )
+
+[node name="T4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.913, 0.0223939, 1.77983 )

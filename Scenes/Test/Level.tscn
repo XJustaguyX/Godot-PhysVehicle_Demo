@@ -1,0 +1,174 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Objects/Car_Prefb.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/Misc/RigidCube.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 200, 1, 200 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 100, 0.5, 100 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 20, 2, 2 )
+
+[sub_resource type="ConvexPolygonShape" id=5]
+points = PoolVector3Array( -10, 1, 1, 10, 1, -1, 10, 1, 1, -10, 1, -1, -10, -1, 1, 10, -1, -1, 10, -1, 1, -10, -1, -1, 10, 1, 1, -10, 1, -1, 10, 1, -1, -10, 1, 1, 10, -1, 1, -10, -1, -1, 10, -1, -1, -10, -1, 1, 10, 1, 1, -10, -1, 1, -10, 1, 1, 10, -1, 1, 10, 1, -1, -10, -1, -1, -10, 1, -1, 10, -1, -1 )
+
+[node name="Level" type="Node"]
+script = ExtResource( 3 )
+
+[node name="LevelCamera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.910796, 0.412857, 0, -0.412857, 0.910796, 0, 9.58624, 12.3921 )
+far = 1000.0
+
+[node name="LevelMeshes" type="Node" parent="."]
+
+[node name="Floor" type="MeshInstance" parent="LevelMeshes"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="LevelMeshes/Floor"]
+collision_layer = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="LevelMeshes/Floor/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="LevelMeshes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.58571, -0.357522, 9.1498 )
+mesh = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="LevelMeshes/MeshInstance"]
+collision_layer = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="LevelMeshes/MeshInstance/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="LevelMeshes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.58571, -0.357522, 0.907198 )
+mesh = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="LevelMeshes/MeshInstance2"]
+collision_layer = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="LevelMeshes/MeshInstance2/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="LevelMeshes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.58571, -0.357522, -6.97155 )
+mesh = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="LevelMeshes/MeshInstance3"]
+collision_layer = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="LevelMeshes/MeshInstance3/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="LevelMeshes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2846, -0.0644355, -6.67939 )
+mesh = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="LevelMeshes/MeshInstance4"]
+collision_layer = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="LevelMeshes/MeshInstance4/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="LevelMeshes"]
+transform = Transform( 0.360375, 0.264394, 8.81457, 0, 0.958991, -2.79289, -0.932808, 0.102144, 3.40536, 7.77305, 0.105915, -23.7845 )
+mesh = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="LevelMeshes/MeshInstance7"]
+collision_layer = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="LevelMeshes/MeshInstance7/StaticBody"]
+transform = Transform( 1, -1.49012e-08, -2.38419e-07, -1.49012e-08, 1, -5.96046e-08, 0, 5.12227e-09, 1, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="MeshInstance9" type="MeshInstance" parent="LevelMeshes"]
+transform = Transform( 0.359905, 0.215097, 8.94565, 0.0183958, 0.971237, -2.3393, -0.932808, 0.102144, 3.40536, 7.77305, 2.00694, -38.7623 )
+mesh = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="LevelMeshes/MeshInstance9"]
+collision_layer = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="LevelMeshes/MeshInstance9/StaticBody"]
+transform = Transform( 1, -1.49012e-08, -2.38419e-07, -1.49012e-08, 1, -5.96046e-08, 0, 5.12227e-09, 1, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="MeshInstance10" type="MeshInstance" parent="LevelMeshes"]
+transform = Transform( 0.344104, -0.0324518, 9.24633, 0.107064, 0.994241, -0.0480537, -0.932808, 0.102144, 3.40536, 19.4683, 1.847, -53.3972 )
+mesh = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="LevelMeshes/MeshInstance10"]
+collision_layer = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="LevelMeshes/MeshInstance10/StaticBody"]
+transform = Transform( 1, -1.49012e-08, -2.38419e-07, -1.49012e-08, 1, -5.96046e-08, 0, 5.12227e-09, 1, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="MeshInstance11" type="MeshInstance" parent="LevelMeshes"]
+transform = Transform( 0.344104, -0.0324518, 9.24633, 0.107064, 0.994241, -0.0480537, -0.932808, 0.102144, 3.40536, 39.6381, 1.847, -53.3972 )
+mesh = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="LevelMeshes/MeshInstance11"]
+collision_layer = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="LevelMeshes/MeshInstance11/StaticBody"]
+transform = Transform( 1, -1.49012e-08, -2.38419e-07, -1.49012e-08, 1, -5.96046e-08, 0, 5.12227e-09, 1, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="MeshInstance8" type="MeshInstance" parent="LevelMeshes"]
+transform = Transform( -0.377301, -0.26249, -8.7511, 0, 0.958991, -2.79289, 0.926091, -0.106942, -3.56531, 20.3892, 0.105915, -21.793 )
+mesh = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="LevelMeshes/MeshInstance8"]
+collision_layer = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="LevelMeshes/MeshInstance8/StaticBody"]
+transform = Transform( 1, -1.49012e-08, -2.38419e-07, -1.49012e-08, 1, -5.96046e-08, 0, 5.12227e-09, 1, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="LevelMeshes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7791, -0.0644375, 0.947945 )
+mesh = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="LevelMeshes/MeshInstance5"]
+collision_layer = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="LevelMeshes/MeshInstance5/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="LevelMeshes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2849, -0.0644355, 8.40354 )
+mesh = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="LevelMeshes/MeshInstance6"]
+collision_layer = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="LevelMeshes/MeshInstance6/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="Rigid_Cube" parent="LevelMeshes" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.05841, 10.9319, -16.7284 )
+collision_layer = 3
+
+[node name="Rigid_Cube2" parent="LevelMeshes" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6464, 11.9732, -17.496 )
+collision_layer = 3
+mass = 3.49
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Car_Node" parent="Player" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24766, 4.45938, -2.69128 )
+speed = 7
+sus_force = 150.0
+sus_stiffness = 0.7
+sus_damp = 2.0
+sus_height = 0.72
+hfriction = 0.035

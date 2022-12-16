@@ -1,0 +1,45 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+}
+
+[application]
+
+config/name="Drive3D_V2"
+run/main_scene="res://Scenes/Test/Level.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1200
+window/size/height=800
+
+[input]
+
+inp_brake={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[network]
+
+limits/debugger_stdout/max_chars_per_second=65536
+
+[physics]
+
+common/physics_fps=120
+
+[rendering]
+
+quality/filters/msaa=2
+environment/default_environment="res://Resources/default_env.tres"
